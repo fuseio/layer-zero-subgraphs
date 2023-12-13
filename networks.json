@@ -3,6 +3,18 @@
     "WrappedTokenBridgeUpgradable": {
       "address": "0x353af4878d7452e974538706273887F7ED90Da47",
       "startBlock": 25092740
+    },
+    "OriginalTokenBridgeUpgradableForPolygon": {
+      "address": "0x36207130CF22d8C54842569A32a0Cd5D711f3580",
+      "startBlock": 25091832
+    },
+    "OriginalTokenBridgeUpgradableForOptimism": {
+      "address": "0xeC3FD32cd5389FbC581427A648d6dc1bc5cfFE3B",
+      "startBlock": 25091847
+    },
+    "OriginalTokenBridgeUpgradableForArbitrum": {
+      "address": "0x56dF61E9f39C75e2d84C05753557bEBB9841Eb5B",
+      "startBlock": 25091858
     }
   }
 }

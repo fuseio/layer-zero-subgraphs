@@ -14,44 +14,83 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - MessageFailed
-        - OwnershipTransferred
-        - RegisterToken
-        - RetryMessageSuccess
-        - SetMinDstGas
-        - SetPrecrime
-        - SetTrustedRemote
-        - SetTrustedRemoteAddress
-        - SetUseCustomAdapterParams
-        - SetWithdrawalFeeBps
         - UnwrapToken
         - WrapToken
       abis:
         - name: WrappedTokenBridgeUpgradable
           file: ./abis/WrappedTokenBridgeUpgradable.json
       eventHandlers:
-        - event: MessageFailed(uint16,bytes,uint64,bytes,bytes)
-          handler: handleMessageFailed
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-        - event: RegisterToken(address,uint16,address)
-          handler: handleRegisterToken
-        - event: RetryMessageSuccess(uint16,bytes,uint64,bytes32)
-          handler: handleRetryMessageSuccess
-        - event: SetMinDstGas(uint16,uint16,uint256)
-          handler: handleSetMinDstGas
-        - event: SetPrecrime(address)
-          handler: handleSetPrecrime
-        - event: SetTrustedRemote(uint16,bytes)
-          handler: handleSetTrustedRemote
-        - event: SetTrustedRemoteAddress(uint16,bytes)
-          handler: handleSetTrustedRemoteAddress
-        - event: SetUseCustomAdapterParams(bool)
-          handler: handleSetUseCustomAdapterParams
-        - event: SetWithdrawalFeeBps(uint16)
-          handler: handleSetWithdrawalFeeBps
         - event: UnwrapToken(address,address,uint16,address,uint256)
           handler: handleUnwrapToken
         - event: WrapToken(address,address,uint16,address,uint256)
           handler: handleWrapToken
       file: ./src/wrapped-token-bridge-upgradable.ts
+  - kind: ethereum
+    name: OriginalTokenBridgeUpgradableForPolygon
+    network: fuse
+    source:
+      address: "0x36207130CF22d8C54842569A32a0Cd5D711f3580"
+      abi: OriginalTokenBridgeUpgradable
+      startBlock: 25091832
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SendToken
+        - ReceiveToken
+      abis:
+        - name: OriginalTokenBridgeUpgradable
+          file: ./abis/OriginalTokenBridgeUpgradable.json
+      eventHandlers:
+        - event: SendToken(address,address,address,uint256)
+          handler: handleSendTokenPolygon
+        - event: ReceiveToken(address,address,uint256)
+          handler: handleReceiveTokenPolygon
+      file: ./src/original-token-bridge-upgradable.ts
+  - kind: ethereum
+    name: OriginalTokenBridgeUpgradableForOptimism
+    network: fuse
+    source:
+      address: "0xeC3FD32cd5389FbC581427A648d6dc1bc5cfFE3B"
+      abi: OriginalTokenBridgeUpgradable
+      startBlock: 25091847
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SendToken
+        - ReceiveToken
+      abis:
+        - name: OriginalTokenBridgeUpgradable
+          file: ./abis/OriginalTokenBridgeUpgradable.json
+      eventHandlers:
+        - event: SendToken(address,address,address,uint256)
+          handler: handleSendTokenOptimism
+        - event: ReceiveToken(address,address,uint256)
+          handler: handleReceiveTokenOptimism
+      file: ./src/original-token-bridge-upgradable.ts
+  - kind: ethereum
+    name: OriginalTokenBridgeUpgradableForArbitrum
+    network: fuse
+    source:
+      address: "0x56dF61E9f39C75e2d84C05753557bEBB9841Eb5B"
+      abi: OriginalTokenBridgeUpgradable
+      startBlock: 25091858
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SendToken
+        - ReceiveToken
+      abis:
+        - name: OriginalTokenBridgeUpgradable
+          file: ./abis/OriginalTokenBridgeUpgradable.json
+      eventHandlers:
+        - event: SendToken(address,address,address,uint256)
+          handler: handleSendTokenArbitrum
+        - event: ReceiveToken(address,address,uint256)
+          handler: handleReceiveTokenArbitrum
+      file: ./src/original-token-bridge-upgradable.ts
