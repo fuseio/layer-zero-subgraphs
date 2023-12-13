@@ -1,0 +1,57 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: WrappedTokenBridgeUpgradable
+    network: fuse
+    source:
+      address: "0x353af4878d7452e974538706273887F7ED90Da47"
+      abi: WrappedTokenBridgeUpgradable
+      startBlock: 25092740
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - MessageFailed
+        - OwnershipTransferred
+        - RegisterToken
+        - RetryMessageSuccess
+        - SetMinDstGas
+        - SetPrecrime
+        - SetTrustedRemote
+        - SetTrustedRemoteAddress
+        - SetUseCustomAdapterParams
+        - SetWithdrawalFeeBps
+        - UnwrapToken
+        - WrapToken
+      abis:
+        - name: WrappedTokenBridgeUpgradable
+          file: ./abis/WrappedTokenBridgeUpgradable.json
+      eventHandlers:
+        - event: MessageFailed(uint16,bytes,uint64,bytes,bytes)
+          handler: handleMessageFailed
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RegisterToken(address,uint16,address)
+          handler: handleRegisterToken
+        - event: RetryMessageSuccess(uint16,bytes,uint64,bytes32)
+          handler: handleRetryMessageSuccess
+        - event: SetMinDstGas(uint16,uint16,uint256)
+          handler: handleSetMinDstGas
+        - event: SetPrecrime(address)
+          handler: handleSetPrecrime
+        - event: SetTrustedRemote(uint16,bytes)
+          handler: handleSetTrustedRemote
+        - event: SetTrustedRemoteAddress(uint16,bytes)
+          handler: handleSetTrustedRemoteAddress
+        - event: SetUseCustomAdapterParams(bool)
+          handler: handleSetUseCustomAdapterParams
+        - event: SetWithdrawalFeeBps(uint16)
+          handler: handleSetWithdrawalFeeBps
+        - event: UnwrapToken(address,address,uint16,address,uint256)
+          handler: handleUnwrapToken
+        - event: WrapToken(address,address,uint16,address,uint256)
+          handler: handleWrapToken
+      file: ./src/wrapped-token-bridge-upgradable.ts

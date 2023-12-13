@@ -1,0 +1,8 @@
+{
+  "fuse": {
+    "WrappedTokenBridgeUpgradable": {
+      "address": "0x353af4878d7452e974538706273887F7ED90Da47",
+      "startBlock": 25092740
+    }
+  }
+}

@@ -1,0 +1,117 @@
+type MessageFailed @entity(immutable: true) {
+  id: Bytes!
+  _srcChainId: Int! # uint16
+  _srcAddress: Bytes! # bytes
+  _nonce: BigInt! # uint64
+  _payload: Bytes! # bytes
+  _reason: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RegisterToken @entity(immutable: true) {
+  id: Bytes!
+  localToken: Bytes! # address
+  remoteChainId: Int! # uint16
+  remoteToken: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RetryMessageSuccess @entity(immutable: true) {
+  id: Bytes!
+  _srcChainId: Int! # uint16
+  _srcAddress: Bytes! # bytes
+  _nonce: BigInt! # uint64
+  _payloadHash: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetMinDstGas @entity(immutable: true) {
+  id: Bytes!
+  _dstChainId: Int! # uint16
+  _type: Int! # uint16
+  _minDstGas: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetPrecrime @entity(immutable: true) {
+  id: Bytes!
+  precrime: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetTrustedRemote @entity(immutable: true) {
+  id: Bytes!
+  _remoteChainId: Int! # uint16
+  _path: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetTrustedRemoteAddress @entity(immutable: true) {
+  id: Bytes!
+  _remoteChainId: Int! # uint16
+  _remoteAddress: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetUseCustomAdapterParams @entity(immutable: true) {
+  id: Bytes!
+  useCustomAdapterParams: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SetWithdrawalFeeBps @entity(immutable: true) {
+  id: Bytes!
+  withdrawalFeeBps: Int! # uint16
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UnwrapToken @entity(immutable: true) {
+  id: Bytes!
+  localToken: Bytes! # address
+  remoteToken: Bytes! # address
+  remoteChainId: Int! # uint16
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WrapToken @entity(immutable: true) {
+  id: Bytes!
+  localToken: Bytes! # address
+  remoteToken: Bytes! # address
+  remoteChainId: Int! # uint16
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
