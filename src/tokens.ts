@@ -24,7 +24,7 @@ export function getDecimals(address: Address): i32 {
     return 18;
   }
   if (address.toHex() == "0x68c9736781e9316ebf5c3d49fe0c1f45d2d104cd") {
-    return 18;
+    return 6;
   }
 
   return 18;
