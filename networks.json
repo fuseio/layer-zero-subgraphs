@@ -15,6 +15,10 @@
     "OriginalTokenBridgeUpgradableForArbitrum": {
       "address": "0x56dF61E9f39C75e2d84C05753557bEBB9841Eb5B",
       "startBlock": 25091858
+    },
+    "OriginalTokenBridgeUpgradableForEthereum": {
+      "address": "0x6fA258e755A20e46c28239c40125e2847c3eE5E8",
+      "startBlock": 28097548
     }
   }
 }
