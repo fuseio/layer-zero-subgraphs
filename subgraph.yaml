@@ -117,3 +117,26 @@ dataSources:
         - event: ReceiveToken(address,address,uint256)
           handler: handleReceiveTokenEthereum
       file: ./src/original-token-bridge-upgradable.ts
+  - kind: ethereum
+    name: OriginalTokenBridgeUpgradableForBNB
+    network: fuse
+    source:
+      address: "0x6bd341B6C7d6123D28d3DDee6A65d441DbAC1E90"
+      abi: OriginalTokenBridgeUpgradable
+      startBlock: 29039060
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SendToken
+        - ReceiveToken
+      abis:
+        - name: OriginalTokenBridgeUpgradable
+          file: ./abis/OriginalTokenBridgeUpgradable.json
+      eventHandlers:
+        - event: SendToken(address,address,address,uint256)
+          handler: handleSendTokenBNB
+        - event: ReceiveToken(address,address,uint256)
+          handler: handleReceiveTokenBNB
+      file: ./src/original-token-bridge-upgradable.ts

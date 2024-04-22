@@ -43,5 +43,8 @@ export function getFuseAddress(chainId: number): Address {
   if (chainId == 101) {
     return Address.fromString("0x970B9bB2C0444F5E81e9d0eFb84C8ccdcdcAf84d");
   }
+  if (chainId == 102) {
+    return Address.fromString("0x5857c96DaE9cF8511B08Cb07f85753C472D36Ea3");
+  }
   return Address.fromString("0x0000000000000000000000000000000000000000");
 }

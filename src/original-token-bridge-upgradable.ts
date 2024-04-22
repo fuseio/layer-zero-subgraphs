@@ -52,6 +52,11 @@ export function handleSendTokenEthereum(event: SendTokenEvent): void {
   entity.save();
 }
 
+export function handleSendTokenBNB(event: SendTokenEvent): void {
+  let entity = handleSendToken(event, 102);
+  entity.save();
+}
+
 export function handleRecieveToken(
   event: ReceiveTokenEvent,
   chainId: i32
@@ -95,5 +100,10 @@ export function handleReceiveTokenArbitrum(event: ReceiveTokenEvent): void {
 
 export function handleReceiveTokenEthereum(event: ReceiveTokenEvent): void {
   let entity = handleRecieveToken(event, 101);
+  entity.save();
+}
+
+export function handleReceiveTokenBNB(event: ReceiveTokenEvent): void {
+  let entity = handleRecieveToken(event, 102);
   entity.save();
 }
